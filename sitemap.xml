@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://kaynak.eu/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://kaynak.eu/en/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kaynak.eu/impressum/</loc>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://kaynak.eu/datenschutz/</loc>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://kaynak.eu/en/legal-notice/</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://kaynak.eu/en/privacy/</loc>
+    <priority>0.3</priority>
+  </url>
+</urlset>
