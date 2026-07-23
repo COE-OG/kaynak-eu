@@ -1,6 +1,7 @@
 # Kaynak UG corporate website
 
-Static, bilingual corporate website for `kaynak.eu`. The site has no runtime
+Static corporate website for `kaynak.eu`, with German and English company
+content plus German, English, and French Cliqly legal pages. The site has no runtime
 dependencies, cookies, analytics, contact form, or externally loaded fonts.
 
 ## Publishing with GitHub Pages
@@ -42,5 +43,7 @@ because the production site runs at the root of `kaynak.eu`.
 ## Content source
 
 Company details and the Cliqly product description were derived from the
-current legal and product documentation in the Cliqly project. Review the legal
-pages whenever company, hosting, or contact details change.
+current legal and product documentation in the Cliqly project. The public Cliqly
+privacy policies and terms mirror the July 2026 app documents in `Cliqly/Legal`.
+Review both copies whenever product behaviour, service providers, company,
+hosting, or contact details change.
