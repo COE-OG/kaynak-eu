@@ -1,4 +1,4 @@
-# Kaynak UG corporate website
+# Kaynak UG (haftungsbeschränkt) corporate website
 
 Static corporate website for `kaynak.eu`, with German and English company
 content plus German, English, and French Cliqly legal pages. The site has no runtime
