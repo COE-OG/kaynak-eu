@@ -122,33 +122,42 @@ button {
 
 .brand-mark {
   position: relative;
-  width: 27px;
+  width: 26px;
   height: 29px;
   display: block;
   flex: 0 0 auto;
   color: currentColor;
 }
 
-.brand-mark::before {
-  content: "";
+.brand-stem {
   position: absolute;
   top: 1px;
-  bottom: 1px;
   left: 2px;
   width: 5px;
+  height: 27px;
   border-radius: 999px;
   background: currentColor;
 }
 
+.brand-mark::before,
 .brand-mark::after {
   content: "";
   position: absolute;
-  top: 1px;
-  right: 1px;
-  bottom: 1px;
-  left: 6px;
+  top: 12px;
+  left: 5px;
+  width: 19px;
+  height: 5px;
+  border-radius: 999px;
   background: currentColor;
-  clip-path: polygon(43% 0, 100% 0, 57% 48%, 100% 100%, 43% 100%, 0 56%, 0 44%);
+  transform-origin: 2.5px 50%;
+}
+
+.brand-mark::before {
+  transform: rotate(-43deg);
+}
+
+.brand-mark::after {
+  transform: rotate(43deg);
 }
 
 .nav-links {
