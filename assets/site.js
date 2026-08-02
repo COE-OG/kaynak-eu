@@ -7,6 +7,7 @@ const root = document.documentElement;
 const preferenceKey = "kaynak-theme";
 const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const finePointer = window.matchMedia("(pointer: fine)");
 const isGerman = root.lang === "de";
 
 const readThemePreference = () => {
@@ -134,6 +135,130 @@ document.addEventListener("keydown", (event) => {
 
 yearLabels.forEach((label) => {
   label.textContent = String(new Date().getFullYear());
+});
+
+const motionShouldBeRestrained = () =>
+  reduceMotion.matches || Boolean(navigator.connection?.saveData);
+
+root.classList.toggle("motion-restrained", motionShouldBeRestrained());
+
+const revealTargets = document.querySelectorAll(
+  [
+    ".hero-grid > :first-child",
+    ".hero-visual",
+    ".section-heading",
+    ".fact-card",
+    ".company-grid > *",
+    ".product-stage",
+    ".value-card",
+    ".responsibility-card",
+    ".contact-panel",
+  ].join(","),
+);
+
+revealTargets.forEach((target, index) => {
+  target.dataset.reveal = "";
+  target.style.setProperty("--reveal-delay", `${(index % 3) * 70}ms`);
+});
+
+if (revealTargets.length > 0) {
+  root.classList.add("motion-ready");
+
+  if (motionShouldBeRestrained() || !("IntersectionObserver" in window)) {
+    revealTargets.forEach((target) => target.classList.add("is-revealed"));
+  } else {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-revealed");
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "0px 0px -8%", threshold: 0.12 },
+    );
+
+    revealTargets.forEach((target) => revealObserver.observe(target));
+  }
+}
+
+const heroVisuals = document.querySelectorAll(".hero-visual");
+
+const resetHeroDepth = (visual) => {
+  const neutralDepth = {
+    "--orb-x": "0px",
+    "--orb-y": "0px",
+    "--phone-x": "0px",
+    "--phone-y": "0px",
+    "--phone-rotate": "0deg",
+    "--note-top-x": "0px",
+    "--note-top-y": "0px",
+    "--note-bottom-x": "0px",
+    "--note-bottom-y": "0px",
+    "--caption-x": "0px",
+    "--caption-y": "0px",
+  };
+
+  Object.entries(neutralDepth).forEach(([property, value]) => {
+    visual.style.setProperty(property, value);
+  });
+};
+
+heroVisuals.forEach((visual) => {
+  let pointerFrame = 0;
+
+  visual.addEventListener("pointermove", (event) => {
+    if (!finePointer.matches || motionShouldBeRestrained()) return;
+
+    const bounds = visual.getBoundingClientRect();
+    const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+    const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+
+    window.cancelAnimationFrame(pointerFrame);
+    pointerFrame = window.requestAnimationFrame(() => {
+      visual.style.setProperty("--orb-x", `${x * 11}px`);
+      visual.style.setProperty("--orb-y", `${y * 10}px`);
+      visual.style.setProperty("--phone-x", `${x * 20}px`);
+      visual.style.setProperty("--phone-y", `${y * 15}px`);
+      visual.style.setProperty("--phone-rotate", `${x * 1.8}deg`);
+      visual.style.setProperty("--note-top-x", `${x * 28}px`);
+      visual.style.setProperty("--note-top-y", `${y * 22}px`);
+      visual.style.setProperty("--note-bottom-x", `${x * -22}px`);
+      visual.style.setProperty("--note-bottom-y", `${y * -18}px`);
+      visual.style.setProperty("--caption-x", `${x * 16}px`);
+      visual.style.setProperty("--caption-y", `${y * 13}px`);
+    });
+  });
+
+  visual.addEventListener("pointerleave", () => resetHeroDepth(visual));
+  visual.addEventListener("pointercancel", () => resetHeroDepth(visual));
+});
+
+document.querySelectorAll(".product-stage").forEach((stage) => {
+  let spotlightFrame = 0;
+
+  stage.addEventListener("pointermove", (event) => {
+    if (!finePointer.matches || motionShouldBeRestrained()) return;
+
+    const bounds = stage.getBoundingClientRect();
+    const x = ((event.clientX - bounds.left) / bounds.width) * 100;
+    const y = ((event.clientY - bounds.top) / bounds.height) * 100;
+
+    window.cancelAnimationFrame(spotlightFrame);
+    spotlightFrame = window.requestAnimationFrame(() => {
+      stage.style.setProperty("--spotlight-x", `${x}%`);
+      stage.style.setProperty("--spotlight-y", `${y}%`);
+      stage.style.setProperty("--spotlight-opacity", "1");
+    });
+  });
+
+  stage.addEventListener("pointerleave", () => {
+    stage.style.setProperty("--spotlight-opacity", "0.72");
+  });
+});
+
+document.addEventListener("visibilitychange", () => {
+  root.classList.toggle("page-inactive", document.hidden);
 });
 
 updateHeader();
