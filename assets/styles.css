@@ -820,54 +820,6 @@ main {
   transition: transform 950ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.aura-caption {
-  position: absolute;
-  z-index: 7;
-  right: 8px;
-  bottom: 18px;
-  min-height: 34px;
-  padding: 0 13px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: var(--ink-soft);
-  background: var(--control-surface);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
-  backdrop-filter: blur(20px) saturate(150%);
-  box-shadow: var(--shadow-card);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transform: translate3d(var(--caption-x, 0px), var(--caption-y, 0px), 0);
-  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.aura-caption-dot {
-  position: relative;
-  width: 8px;
-  height: 8px;
-  flex: 0 0 auto;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--aura-cyan), var(--aura-violet) 58%, var(--aura-magenta));
-  box-shadow:
-    0 0 0 3px rgba(51, 179, 255, 0.12),
-    0 0 16px rgba(41, 242, 224, 0.75);
-  animation: auraPulse 2.8s ease-in-out infinite;
-}
-
-@keyframes auraPulse {
-  50% {
-    transform: scale(0.78);
-    opacity: 0.72;
-    box-shadow:
-      0 0 0 6px rgba(51, 179, 255, 0.04),
-      0 0 10px rgba(179, 118, 255, 0.52);
-  }
-}
-
 .section {
   padding: 120px 0;
 }
@@ -886,9 +838,10 @@ main {
   overflow: hidden;
   color: #fff;
   background:
-    radial-gradient(circle at 8% 10%, rgba(60, 131, 246, 0.25), transparent 30%),
-    radial-gradient(circle at 93% 82%, rgba(117, 87, 255, 0.2), transparent 34%),
-    #111318;
+    radial-gradient(ellipse 76% 72% at 12% 36%, rgba(51, 179, 255, 0.22), transparent 70%),
+    radial-gradient(ellipse 68% 80% at 88% 58%, rgba(179, 118, 255, 0.22), transparent 72%),
+    radial-gradient(ellipse 54% 46% at 54% 96%, rgba(245, 77, 199, 0.12), transparent 74%),
+    linear-gradient(142deg, #080c14 0%, #0b0e19 48%, #0c0918 100%);
 }
 
 .section-dark::before,
@@ -896,27 +849,36 @@ main {
   content: "";
   position: absolute;
   z-index: -1;
-  width: min(54vw, 760px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.16;
   pointer-events: none;
-  will-change: transform;
 }
 
 .section-dark::before {
-  top: -34%;
-  left: -12%;
-  background: linear-gradient(135deg, var(--aura-blue), var(--aura-cyan));
-  animation: sectionAuraOne 24s ease-in-out infinite alternate;
+  inset: -46% -22%;
+  border-radius: 42%;
+  background:
+    radial-gradient(circle at 24% 47%, rgba(41, 242, 224, 0.56), transparent 26%),
+    radial-gradient(circle at 46% 28%, rgba(51, 179, 255, 0.55), transparent 30%),
+    radial-gradient(circle at 73% 55%, rgba(179, 118, 255, 0.58), transparent 31%),
+    radial-gradient(circle at 58% 78%, rgba(245, 77, 199, 0.38), transparent 27%);
+  filter: blur(92px) saturate(128%);
+  mix-blend-mode: screen;
+  opacity: 0.34;
+  will-change: transform;
+  animation: sectionAuraMesh 26s ease-in-out infinite alternate;
 }
 
 .section-dark::after {
-  right: -15%;
-  bottom: -44%;
-  background: linear-gradient(135deg, var(--aura-violet), var(--aura-magenta));
-  animation: sectionAuraTwo 29s ease-in-out infinite alternate;
+  inset: -30% -12%;
+  border-radius: 44%;
+  background:
+    radial-gradient(ellipse at 34% 64%, rgba(51, 179, 255, 0.4), transparent 38%),
+    radial-gradient(ellipse at 66% 38%, rgba(179, 118, 255, 0.4), transparent 40%),
+    radial-gradient(ellipse at 72% 74%, rgba(245, 77, 199, 0.24), transparent 32%);
+  filter: blur(74px) saturate(124%);
+  mix-blend-mode: screen;
+  opacity: 0.24;
+  will-change: transform;
+  animation: sectionAuraRibbon 34s ease-in-out infinite alternate;
 }
 
 .section-dark > .shell {
@@ -924,12 +886,16 @@ main {
   z-index: 1;
 }
 
-@keyframes sectionAuraOne {
-  to { transform: translate3d(28%, 22%, 0) scale(1.16); }
+@keyframes sectionAuraMesh {
+  to {
+    transform: translate3d(5%, -4%, 0) rotate(7deg) scale(1.08);
+  }
 }
 
-@keyframes sectionAuraTwo {
-  to { transform: translate3d(-24%, -19%, 0) scale(0.92); }
+@keyframes sectionAuraRibbon {
+  to {
+    transform: translate3d(-4%, 5%, 0) rotate(-5deg) scale(1.06);
+  }
 }
 
 .section-heading {
@@ -1077,53 +1043,100 @@ main {
 .product-stage {
   position: relative;
   isolation: isolate;
-  overflow: hidden;
-  padding: clamp(28px, 5vw, 62px);
+  overflow: visible;
+  padding: clamp(24px, 4vw, 48px) 0;
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
   align-items: center;
   gap: 70px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-xl);
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.025));
-  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.22);
 }
 
 .product-stage::before {
   content: "";
   position: absolute;
   z-index: -1;
-  inset: 0;
+  inset: -38% -16vw;
   background:
     radial-gradient(
-      420px circle at var(--spotlight-x, 52%) var(--spotlight-y, 42%),
-      rgba(83, 189, 255, 0.18),
-      rgba(179, 118, 255, 0.07) 37%,
-      transparent 68%
-    );
-  opacity: var(--spotlight-opacity, 0.72);
+      760px circle at var(--spotlight-x, 48%) var(--spotlight-y, 46%),
+      rgba(41, 242, 224, 0.2),
+      rgba(51, 179, 255, 0.16) 24%,
+      rgba(179, 118, 255, 0.12) 44%,
+      transparent 72%
+    ),
+    radial-gradient(ellipse at 78% 52%, rgba(245, 77, 199, 0.13), transparent 52%);
+  filter: blur(28px) saturate(125%);
+  mix-blend-mode: screen;
+  opacity: var(--spotlight-opacity, 0.8);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 0 42%, transparent 76%);
+  mask-image: radial-gradient(ellipse at center, #000 0 42%, transparent 76%);
   transition: opacity 420ms ease;
   pointer-events: none;
 }
 
 .product-stage::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  border-radius: inherit;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09);
-  pointer-events: none;
+  content: none;
 }
 
 .product-visual {
+  position: relative;
+  isolation: isolate;
   min-width: 0;
   display: grid;
   place-items: center;
 }
 
+.product-visual::before,
+.product-visual::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.product-visual::before {
+  width: min(132%, 590px);
+  aspect-ratio: 1;
+  background: conic-gradient(
+    from 205deg,
+    rgba(41, 242, 224, 0.72),
+    rgba(51, 179, 255, 0.68) 27%,
+    rgba(179, 118, 255, 0.66) 58%,
+    rgba(245, 77, 199, 0.54) 78%,
+    rgba(41, 242, 224, 0.72)
+  );
+  filter: blur(64px) saturate(118%);
+  opacity: 0.36;
+  animation: productAuraBreath 14s ease-in-out infinite alternate;
+}
+
+.product-visual::after {
+  width: min(92%, 410px);
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(148, 211, 255, 0.36), transparent 68%);
+  filter: blur(28px);
+  opacity: 0.55;
+  animation: productAuraFloat 18s ease-in-out infinite alternate;
+}
+
+@keyframes productAuraBreath {
+  to {
+    transform: rotate(14deg) scale(1.1);
+    opacity: 0.46;
+  }
+}
+
+@keyframes productAuraFloat {
+  to {
+    transform: translate3d(7%, -5%, 0) scale(0.94);
+  }
+}
+
 .product-icon {
+  position: relative;
+  z-index: 1;
   width: min(100%, 430px);
   height: auto;
   margin: 0 auto;
@@ -1131,42 +1144,30 @@ main {
   object-fit: contain;
   border-radius: 30%;
   box-shadow:
-    0 40px 80px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(255, 255, 255, 0.16);
+    0 44px 100px rgba(0, 0, 0, 0.42),
+    0 18px 70px rgba(51, 179, 255, 0.16),
+    0 0 0 1px rgba(255, 255, 255, 0.14);
 }
 
-.product-label-row {
+.product-label {
   margin-bottom: 21px;
+  width: max-content;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 9px;
-}
-
-.product-label,
-.aura-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 7px 11px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 999px;
-  color: #c4dcff;
-  background: rgba(255, 255, 255, 0.06);
+  gap: 10px;
+  color: #a9d5ff;
   font-size: 12px;
   font-weight: 680;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.aura-badge {
-  color: rgba(255, 255, 255, 0.72);
-  background: rgba(255, 255, 255, 0.035);
-}
-
-.aura-badge .aura-caption-dot {
-  width: 6px;
-  height: 6px;
+.product-label::before {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--aura-cyan), var(--aura-violet));
+  box-shadow: 0 0 12px rgba(51, 179, 255, 0.54);
 }
 
 .motion-ready [data-reveal] {
@@ -1189,23 +1190,24 @@ main {
 .page-inactive .aura-orb,
 .page-inactive .aura-fog,
 .page-inactive .aura-dust,
-.page-inactive .aura-caption-dot,
 .page-inactive .section-dark::before,
 .page-inactive .section-dark::after,
+.page-inactive .product-visual::before,
+.page-inactive .product-visual::after,
 .motion-restrained .aura-orb,
 .motion-restrained .aura-fog,
 .motion-restrained .aura-dust,
-.motion-restrained .aura-caption-dot,
 .motion-restrained .section-dark::before,
-.motion-restrained .section-dark::after {
+.motion-restrained .section-dark::after,
+.motion-restrained .product-visual::before,
+.motion-restrained .product-visual::after {
   animation-play-state: paused;
 }
 
 @media (pointer: fine) {
   .hero-visual .orb,
   .hero-visual .phone,
-  .hero-visual .floating-note,
-  .hero-visual .aura-caption {
+  .hero-visual .floating-note {
     will-change: transform;
   }
 }
@@ -1628,9 +1630,10 @@ main {
 
 :root[data-theme="dark"] .section-dark {
   background:
-    radial-gradient(circle at 8% 10%, rgba(60, 131, 246, 0.22), transparent 30%),
-    radial-gradient(circle at 93% 82%, rgba(117, 87, 255, 0.18), transparent 34%),
-    #07090e;
+    radial-gradient(ellipse 76% 72% at 12% 36%, rgba(51, 179, 255, 0.2), transparent 70%),
+    radial-gradient(ellipse 68% 80% at 88% 58%, rgba(179, 118, 255, 0.2), transparent 72%),
+    radial-gradient(ellipse 54% 46% at 54% 96%, rgba(245, 77, 199, 0.11), transparent 74%),
+    linear-gradient(142deg, #05080e 0%, #080a13 48%, #090611 100%);
 }
 
 :root[data-theme="dark"] .contact-panel {
@@ -1809,11 +1812,6 @@ main {
     left: 0;
   }
 
-  .aura-caption {
-    right: 0;
-    bottom: 4px;
-  }
-
   .section {
     padding: 82px 0;
   }
@@ -1853,8 +1851,7 @@ main {
   }
 
   .product-stage {
-    padding: 28px;
-    border-radius: 30px;
+    padding: 18px 0 6px;
   }
 
   .product-copy h3 {
@@ -1911,12 +1908,6 @@ main {
   .floating-note {
     padding: 10px 12px;
     font-size: 11px;
-  }
-
-  .aura-caption {
-    min-height: 30px;
-    padding: 0 10px;
-    font-size: 9px;
   }
 }
 

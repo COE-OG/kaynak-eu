@@ -195,8 +195,6 @@ const resetHeroDepth = (visual) => {
     "--note-top-y": "0px",
     "--note-bottom-x": "0px",
     "--note-bottom-y": "0px",
-    "--caption-x": "0px",
-    "--caption-y": "0px",
   };
 
   Object.entries(neutralDepth).forEach(([property, value]) => {
@@ -225,8 +223,6 @@ heroVisuals.forEach((visual) => {
       visual.style.setProperty("--note-top-y", `${y * 22}px`);
       visual.style.setProperty("--note-bottom-x", `${x * -22}px`);
       visual.style.setProperty("--note-bottom-y", `${y * -18}px`);
-      visual.style.setProperty("--caption-x", `${x * 16}px`);
-      visual.style.setProperty("--caption-y", `${y * 13}px`);
     });
   });
 
@@ -253,7 +249,7 @@ document.querySelectorAll(".product-stage").forEach((stage) => {
   });
 
   stage.addEventListener("pointerleave", () => {
-    stage.style.setProperty("--spotlight-opacity", "0.72");
+    stage.style.setProperty("--spotlight-opacity", "0.8");
   });
 });
 
