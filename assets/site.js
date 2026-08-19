@@ -191,10 +191,6 @@ const resetHeroDepth = (visual) => {
     "--phone-x": "0px",
     "--phone-y": "0px",
     "--phone-rotate": "0deg",
-    "--note-top-x": "0px",
-    "--note-top-y": "0px",
-    "--note-bottom-x": "0px",
-    "--note-bottom-y": "0px",
   };
 
   Object.entries(neutralDepth).forEach(([property, value]) => {
@@ -219,10 +215,6 @@ heroVisuals.forEach((visual) => {
       visual.style.setProperty("--phone-x", `${x * 20}px`);
       visual.style.setProperty("--phone-y", `${y * 15}px`);
       visual.style.setProperty("--phone-rotate", `${x * 1.8}deg`);
-      visual.style.setProperty("--note-top-x", `${x * 28}px`);
-      visual.style.setProperty("--note-top-y", `${y * 22}px`);
-      visual.style.setProperty("--note-bottom-x", `${x * -22}px`);
-      visual.style.setProperty("--note-bottom-y", `${y * -18}px`);
     });
   });
 
