@@ -58,7 +58,7 @@
         <div class="legal-heading">
           <p class="section-kicker">Cliqly · Legal</p>
           <h1>Privacy Policy for “Cliqly”</h1>
-          <p>Last updated: July 2026</p>
+          <p>Last updated: August 2026</p>
           <nav class="legal-language-switcher" aria-label="Language">
               <a href="/cliqly/datenschutz/" lang="de" hreflang="de">DE</a>
               <a href="/en/cliqly/privacy/" lang="en" hreflang="en" aria-current="page">EN</a>
@@ -68,14 +68,14 @@
         <article class="legal-content">
           <h2>1. Controller</h2>
           <p>Kaynak UG (haftungsbeschränkt)<br />Erfweiler Str. 12<br />66994 Dahn<br />Germany</p>
-          <p>Email: <a href="mailto:support@kaynak.eu">support@kaynak.eu</a><br />Privacy contact: <a href="mailto:datenschutz@cliqly.de">datenschutz@cliqly.de</a></p>
+          <p>Email: <a href="mailto:support@kaynak.eu">support@kaynak.eu</a><br />Phone: <a href="tel:+491705265203">+49 170 5265203</a><br />Privacy contact: <a href="mailto:datenschutz@cliqly.de">datenschutz@cliqly.de</a><br />VAT identification number: DE464257971</p>
           <h2>2. Scope</h2>
           <p>This Policy explains how personal data is processed in Cliqly. The EU General Data Protection Regulation (GDPR) applies to people in the EU and EEA. We also account for the Swiss Federal Act on Data Protection (FADP) for people in Switzerland. Any additional mandatory rights under the law applicable at a person’s location remain unaffected.</p>
           <p>Cliqly is only intended for adults aged 18 or older.</p>
           <h2>3. Categories of data</h2>
           <p>Depending on use, we process:</p>
           <ul>
-            <li>account, authentication and session data, including Sign in with Apple,</li>
+            <li>account, authentication and session data, including Sign in with Apple, the email address Apple provides for Cliqly (which may be a private relay address),</li>
             <li>profile data such as display name, username, bio, interests, image, role, badges, language and privacy settings,</li>
             <li>follows, follow requests, blocks and invitations,</li>
             <li>event data, including content, categories, location, time, host and participation status,</li>
@@ -87,13 +87,31 @@
             <li>device, push, error and security data where needed for delivery, stability and abuse prevention,</li>
             <li>location data when a location feature is used and iOS permission has been granted.</li>
           </ul>
+          <p>The email address Apple provides for Cliqly is processed for sign-in, account association, account security and required service communications. We do not use it for advertising without a separate legal basis.</p>
+          <h3>3.1 Subscription, transaction and entitlement data</h3>
+          <p>When an optional subscription is purchased, restored or managed, we process the following in particular for server-side verification and access control:</p>
+          <ul>
+            <li>product identifier and the subscription tier derived from it,</li>
+            <li>the Apple transaction identifier and original transaction identifier,</li>
+            <li>a pseudonymous, app-specific account-association identifier (<code>appAccountToken</code>) derived from the provider identifier verified by Sign in with Apple; it contains no name, email address or payment details,</li>
+            <li>purchase, expiry, signature and verification timestamps, the verification source (app sync or Apple server notification) and, where applicable, grace-period, refund, revocation, upgrade and renewal status,</li>
+            <li>the technical environment (production or test environment),</li>
+            <li>the identifier, type and processing result of App Store server notifications and cryptographic hashes of verified signed messages,</li>
+            <li>for monthly free allowances, the relevant event action, a technical operation identifier, calendar month, reservation or completion status, and the subscription tier used for the decision.</li>
+          </ul>
+          <p>The signed JWS supplied by StoreKit or Apple is processed transiently for cryptographic verification. We do not persist the complete JWS; we store only the information required for entitlement, status, duplicate and tampering protection, together with a SHA-256 hash. We do not receive or store full payment-card, bank-account or other payment details; Apple processes those within the App Store.</p>
+          <h3>3.2 Internal usage and diagnostic data</h3>
+          <p>For internal product, operational and security analytics, we may analyse account-linked activities and product interactions, such as events created or attended, participation status and features used, together with counts of messages and media. We also process technical performance and diagnostic data, such as loading or execution duration, error states and feature reliability. Message and media counts show how many items exist; they are not used to analyse their content for advertising. Content may independently be processed where required for transmission, display, safety, reporting or moderation. We do not build advertising profiles from this data.</p>
           <h2>4. Purposes and legal bases</h2>
           <p>We process data to provide accounts and requested features under Article 6(1)(b) GDPR, based on consent under Article 6(1)(a), to comply with legal duties under Article 6(1)(c), and for legitimate interests under Article 6(1)(f), particularly safety, moderation, fraud prevention, service stability, legal defence and product improvement.</p>
+          <p>We process subscription and entitlement data in particular to perform the subscription contract, assign and restore purchased features, calculate usage allowances, and respond to renewals, expiry, grace periods, refunds or revocations under Article 6(1)(b) GDPR. Preventing duplicate processing, unauthorised activation, manipulation and fraud, and maintaining technical traceability serve our legitimate interests in a secure and reliable subscription service under Article 6(1)(f) GDPR. Article 6(1)(c) GDPR applies where retention or evidence is required by law.</p>
           <p>Under Swiss law, processing follows the principles of lawfulness, proportionality, purpose limitation, transparency and data security. Consent can be withdrawn at any time with future effect.</p>
           <h2>5. Location and launch areas</h2>
           <p>Cliqly launches in Frankfurt with a 17 km radius and Geneva with a 20 km radius. The Geneva launch area may include the Swiss and supported French parts of the cross-border metropolitan region.</p>
           <p>Device location is processed only with iOS permission and for location-based features. Cloud-based profile discovery uses only a coarsely rounded location with approximately one-kilometre precision. Precise device location is not persistently stored as the profile location for this purpose.</p>
           <p>Event hosts choose between an exact and approximate address. Exact meeting details are disclosed only in line with the access status shown in the app.</p>
+          <h3>5.1 Optional calendar export</h3>
+          <p>Only when a user expressly selects “Add to Calendar” does Cliqly request write-only iOS calendar access and create the selected event through EventKit in the device calendar. Cliqly does not read existing calendar entries, upload calendar content to the Cliqly backend or use calendar data for analytics. Whether Apple Calendar synchronises an entry through iCloud depends on the user's Apple and calendar settings. Permission can be changed at any time in iOS.</p>
           <h2>6. Visibility inside Cliqly</h2>
           <p>Profile, event, Crew and network data is displayed only as required by the relevant feature and chosen visibility settings. Private profiles and non-public content are intended only for the authorised audience. Hosts and confirmed participants may see additional event information.</p>
           <h2>7. Photos and media</h2>
@@ -101,6 +119,7 @@
           <h2>8. Chats and retention</h2>
           <p>Event chats are restricted to hosts and confirmed participants. Regular event-chat messages are scheduled for deletion 24 hours after the event starts. Crew planning signals are normally deleted after 14 days. Content linked to an open report may be restricted and retained until moderation and applicable appeal periods are complete.</p>
           <p>Other data is kept only as long as required for the account, feature, safety purpose, legal obligation or claim. Retention depends on the data category, purpose and any unresolved dispute or report.</p>
+          <p>The active <code>appAccountToken</code> mapping is needed for the life of the Cliqly account. Active subscriptions and subscriptions in an Apple grace period are not removed by the regular retention cleanup. While an account remains open, expired or revoked subscription chains and their verified transaction records are deleted 36 months after the relevant expiry or revocation date. Allowance operations are deleted 13 months after the start of the relevant calendar month. Technical receipt records for App Store server notifications, particularly the notification identifier, processing result and JWS hash, are kept for 180 days and then deleted. When an account is deleted, the account-linked token mapping, subscription chains, transaction records and allowance operations are removed from the active backend. Mandatory statutory retention duties and the preservation of specifically required legal claims remain unaffected; in that case, processing is restricted to the necessary purpose.</p>
           <h2>9. Moderation and safety</h2>
           <p>Reports include the reported content, selected reason, technical references and context required for review. Automated filters may block or flag content for human review. Material sanctions can be reviewed. Decision and complaint records are kept only as long as needed for safety, evidence, legal defence and legal obligations.</p>
           <h2>10. Notifications</h2>
@@ -109,13 +128,16 @@
           <p>We use service providers only where needed to operate and secure Cliqly, particularly:</p>
           <ul>
             <li>Apple for Sign in with Apple, CloudKit, Apple Push Notification Service, WeatherKit, MapKit, StoreKit and related iOS services,</li>
-            <li>Supabase for selected authentication, role, safety, moderation and server-side backend functions.</li>
+            <li>Supabase for selected authentication, role, safety, moderation and server-side backend functions, including protected storage and verification of subscription entitlements and usage allowances.</li>
           </ul>
-          <p>We do not sell personal data, share it for third-party advertising or display third-party advertising. Optional subscriptions finance the operation and development of Cliqly.</p>
+          <p>Apple independently administers App Store purchases and payments under Apple's terms and supplies us with verifiable transaction, renewal, expiry, refund and revocation information. Supabase processes data required for our backend functions on our instructions where it acts as a processor under data-protection law.</p>
+          <p>Using Supabase may generate operational Auth, API and Edge Function logs. These may include the IP address, user agent, timestamp, requested endpoint, status or error code, technical region and request or execution duration. We use them for authentication and access protection, secure operation, abuse and error detection, and technical troubleshooting. Retention for Auth, API and Edge Function logs is governed separately by the periods applicable to the Supabase project, product, plan and configuration in use; these periods may change and are therefore not promised as a fixed number of days. The current Supabase documentation and project configuration apply. Access is restricted to personnel who need it.</p>
+          <p>Providers process data according to their function and applicable contractual and legal requirements. Cliqly does not perform cross-app or cross-website tracking for advertising or advertising measurement, disclose data to data brokers or sell personal data. We do not share data for third-party advertising or display third-party advertising. Optional subscriptions finance the operation and development of Cliqly.</p>
           <h2>12. International transfers</h2>
           <p>Where data is processed outside the EU, EEA or Switzerland, we use legally recognised safeguards where required, such as adequacy decisions or standard contractual clauses, and consider Swiss data-protection requirements.</p>
           <h2>13. Export and account deletion</h2>
           <p>Users can request an export and delete their account in the app. Deletion ends the session and initiates deletion or irreversible anonymisation of associated personal data and relationships. A later permitted registration starts a new profile without previous follows or profile data.</p>
+          <p>Deleting the Cliqly account does not cancel an Apple subscription. It must be cancelled separately in Apple's subscription management. Apple may continue to process purchase and subscription data under its own legal obligations and send subscription-status server notifications after the Cliqly account has been deleted. If a Cliqly account is later created with the same account verified through Sign in with Apple, the pseudonymous app-specific association identifier may be derived again and a still-active subscription can be reassociated only after renewed cryptographic verification; deleted profile and network data is not restored.</p>
           <p>Limited exceptions apply where data must be restricted and retained for legal duties, unresolved reports, enforced bans, security evidence or legal claims. A minimal identifier may be retained to prevent evasion of a permanent ban.</p>
           <h2>14. Automated decisions</h2>
           <p>Cliqly uses recommendations, rankings and safety filters. It does not make solely automated decisions intended to produce legal or similarly significant effects. Human review of a material moderation decision can be requested at <a href="mailto:datenschutz@cliqly.de">datenschutz@cliqly.de</a>.</p>
