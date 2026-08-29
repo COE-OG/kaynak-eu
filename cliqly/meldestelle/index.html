@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cliqly Meldestelle – Kaynak UG (haftungsbeschränkt)</title>
+    <meta
+      name="description"
+      content="Strukturierte Meldestelle für mutmaßlich rechtswidrige Inhalte in Cliqly – ohne Cliqly-Konto nutzbar."
+    />
+    <meta name="theme-color" content="#f6f7f9" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="robots" content="index,follow" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; connect-src https://szwhywxaycqqfzovaedc.supabase.co; img-src 'self'; style-src 'self'; script-src 'self'; font-src 'self'; object-src 'none'; frame-src 'none'; media-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests"
+    />
+    <link rel="canonical" href="https://kaynak.eu/cliqly/meldestelle/" />
+    <link rel="alternate" hreflang="de" href="https://kaynak.eu/cliqly/meldestelle/?lang=de" />
+    <link rel="alternate" hreflang="en" href="https://kaynak.eu/cliqly/meldestelle/?lang=en" />
+    <link rel="alternate" hreflang="fr" href="https://kaynak.eu/cliqly/meldestelle/?lang=fr" />
+    <link rel="alternate" hreflang="x-default" href="https://kaynak.eu/cliqly/meldestelle/" />
+    <link rel="icon" href="/assets/kaynak-mark.png" type="image/png" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <link rel="stylesheet" href="/assets/cliqly-meldestelle.css" />
+    <script type="module" src="/assets/cliqly-meldestelle.mjs"></script>
+  </head>
+  <body class="notice-page">
+    <a class="skip-link" href="#content" data-i18n="skip">Zum Inhalt springen</a>
+
+    <header class="notice-header">
+      <div class="notice-header-shell">
+        <a class="brand" href="/" data-i18n-aria-label="homeAria">
+          <span class="brand-mark" aria-hidden="true"><span class="brand-stem"></span></span>
+          <span>Kaynak</span>
+        </a>
+        <nav class="notice-languages" aria-label="Language">
+          <a href="?lang=de" lang="de" hreflang="de" data-language-link="de">DE</a>
+          <a href="?lang=en" lang="en" hreflang="en" data-language-link="en">EN</a>
+          <a href="?lang=fr" lang="fr" hreflang="fr" data-language-link="fr">FR</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="notice-main" id="content">
+      <section class="notice-hero" aria-labelledby="notice-title">
+        <p class="section-kicker" data-i18n="kicker">Cliqly · Sicherheit</p>
+        <h1 id="notice-title" data-i18n="title">Formelle Inhaltsmeldung</h1>
+        <p class="notice-lead" data-i18n="intro">
+          Melde mutmaßlich rechtswidrige Inhalte präzise – auch ohne Cliqly-Konto.
+        </p>
+        <div class="notice-trust-row" aria-label="Hinweise">
+          <span data-i18n="trustAccount">Kein Konto erforderlich</span>
+          <span data-i18n="trustHuman">Menschliche Prüfung</span>
+          <span data-i18n="trustMinimal">Datensparsam</span>
+        </div>
+      </section>
+
+      <div class="notice-service" id="service-message" role="status" aria-live="polite" hidden>
+        <strong id="service-message-title"></strong>
+        <span id="service-message-copy"></span>
+      </div>
+
+      <section class="notice-panel" id="notice-submit-panel" aria-labelledby="submit-title">
+        <div class="notice-section-heading">
+          <span class="notice-step" aria-hidden="true">01</span>
+          <div>
+            <h2 id="submit-title" data-i18n="submitTitle">Inhalt genau bezeichnen</h2>
+            <p data-i18n="submitIntro">
+              Die Pflichtfelder helfen uns, den konkreten Inhalt zuverlässig zu finden und zu prüfen.
+            </p>
+          </div>
+        </div>
+
+        <form id="notice-form" autocomplete="off">
+          <div class="notice-grid notice-grid-two">
+            <label>
+              <span data-i18n="subjectType">Art des Inhalts</span>
+              <select name="subject_type" required>
+                <option value="profile" data-option-kind="subject" data-option-value="profile">Profil</option>
+                <option value="event" data-option-kind="subject" data-option-value="event">Event</option>
+                <option value="event_photo" data-option-kind="subject" data-option-value="event_photo">Event-Foto</option>
+                <option value="message" data-option-kind="subject" data-option-value="message">Chat-Nachricht</option>
+                <option value="crew" data-option-kind="subject" data-option-value="crew">Crew</option>
+                <option value="crew_message" data-option-kind="subject" data-option-value="crew_message">Crew-Nachricht</option>
+                <option value="other" data-option-kind="subject" data-option-value="other">Sonstiger Inhalt</option>
+              </select>
+            </label>
+            <label>
+              <span data-i18n="reason">Grund</span>
+              <select name="reason_code" id="reason-code" required>
+                <option value="illegal_content" data-option-kind="reason" data-option-value="illegal_content">Mutmaßlich rechtswidriger Inhalt</option>
+                <option value="hate" data-option-kind="reason" data-option-value="hate">Hassrede</option>
+                <option value="violence" data-option-kind="reason" data-option-value="violence">Gewalt oder Drohung</option>
+                <option value="sexual_content" data-option-kind="reason" data-option-value="sexual_content">Sexueller Inhalt / Schutz Minderjähriger</option>
+                <option value="privacy" data-option-kind="reason" data-option-value="privacy">Privatsphäre</option>
+                <option value="impersonation" data-option-kind="reason" data-option-value="impersonation">Identitätsmissbrauch</option>
+                <option value="fraud" data-option-kind="reason" data-option-value="fraud">Betrug</option>
+                <option value="harassment" data-option-kind="reason" data-option-value="harassment">Belästigung</option>
+                <option value="dangerous_activity" data-option-kind="reason" data-option-value="dangerous_activity">Gefährliche Aktivität</option>
+                <option value="unsafe_location" data-option-kind="reason" data-option-value="unsafe_location">Unsicherer Ort</option>
+                <option value="media_issue" data-option-kind="reason" data-option-value="media_issue">Medieninhalt</option>
+                <option value="spam" data-option-kind="reason" data-option-value="spam">Spam</option>
+                <option value="other" data-option-kind="reason" data-option-value="other">Anderer Grund</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            <span data-i18n="reference">Eindeutige Inhaltsreferenz</span>
+            <input
+              name="subject_reference"
+              maxlength="512"
+              required
+              aria-describedby="reference-help"
+            />
+            <small id="reference-help" data-i18n="referenceHelp">
+              Zum Beispiel Nutzername, Eventtitel, Nachrichtenzeit oder sichtbare Kartenangabe.
+            </small>
+          </label>
+
+          <label>
+            <span data-i18n="location">Exakter Fundort</span>
+            <input
+              name="content_location"
+              maxlength="2048"
+              required
+              aria-describedby="location-help"
+            />
+            <small id="location-help" data-i18n="locationHelp">
+              Füge eine öffentliche URL oder den genauen Weg in der App ein.
+            </small>
+          </label>
+
+          <label>
+            <span data-i18n="explanation">Warum hältst du den Inhalt für rechtswidrig?</span>
+            <textarea
+              name="explanation"
+              minlength="50"
+              maxlength="5000"
+              rows="7"
+              required
+              aria-describedby="explanation-help explanation-count"
+            ></textarea>
+            <span class="notice-field-meta">
+              <small id="explanation-help" data-i18n="explanationHelp">
+                Beschreibe die konkreten Tatsachen und den Zusammenhang nachvollziehbar.
+              </small>
+              <small id="explanation-count" aria-live="polite">0 / 5000</small>
+            </span>
+          </label>
+
+          <label>
+            <span><span data-i18n="legalReference">Rechtsgrundlage</span> <span class="notice-optional" data-i18n="optional">optional</span></span>
+            <textarea name="legal_reference" maxlength="1000" rows="3"></textarea>
+          </label>
+
+          <fieldset class="notice-contact">
+            <legend data-i18n="contactTitle">Kontakt für Eingangs- und Entscheidungsmitteilungen</legend>
+            <p data-i18n="contactIntro">
+              Wir verwenden diese Angaben ausschließlich für die Bearbeitung der Meldung und rechtlich erforderliche Mitteilungen.
+            </p>
+            <div class="notice-grid notice-grid-two">
+              <label>
+                <span data-i18n="name">Name</span>
+                <input name="contact_name" maxlength="200" autocomplete="name" required />
+              </label>
+              <label>
+                <span data-i18n="email">E-Mail-Adresse</span>
+                <input name="contact_email" maxlength="320" type="email" autocomplete="email" required />
+              </label>
+            </div>
+            <div class="notice-exception" id="identity-exception" hidden>
+              <label class="notice-check">
+                <input type="checkbox" name="identity_exception_claimed" />
+                <span data-i18n="identityException">
+                  Ich beanspruche die enge gesetzliche Identitätsausnahme für einen Hinweis zu sexuellem Missbrauch von Kindern.
+                </span>
+              </label>
+              <p data-i18n="identityExceptionHelp">
+                Diese Ausnahme gilt nicht für gewöhnliche Meldungen sexueller Inhalte. Kontaktangaben sind sonst erforderlich.
+              </p>
+            </div>
+          </fieldset>
+
+          <div class="notice-confirmations">
+            <label class="notice-check">
+              <input type="checkbox" name="good_faith_confirmed" required />
+              <span data-i18n="goodFaith">
+                Ich bestätige nach bestem Wissen, dass die Angaben richtig und vollständig sind.
+              </span>
+            </label>
+            <label class="notice-check">
+              <input type="checkbox" name="privacy_acknowledged" required />
+              <span>
+                <span data-i18n="privacyAcknowledgement">Ich habe die</span>
+                <a id="privacy-link" href="/cliqly/datenschutz/" data-i18n="privacyLink">Datenschutzhinweise</a>
+                <span data-i18n="privacySuffix">zur Verarbeitung dieser Meldung gelesen.</span>
+              </span>
+            </label>
+          </div>
+
+          <label class="notice-honeypot" aria-hidden="true">
+            Fax
+            <input name="fax_number" tabindex="-1" autocomplete="off" />
+          </label>
+
+          <div class="notice-actions">
+            <button class="notice-primary" id="submit-button" type="submit" data-i18n="submit">
+              Meldung sicher absenden
+            </button>
+            <button class="notice-secondary" id="retry-button" type="button" data-i18n="retry" hidden>
+              Unverändert erneut senden
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section class="notice-panel notice-result" id="receipt-panel" aria-labelledby="receipt-title" hidden>
+        <div class="notice-section-heading">
+          <span class="notice-success-mark" aria-hidden="true">✓</span>
+          <div>
+            <h2 id="receipt-title" data-i18n="receiptTitle">Meldung eingegangen</h2>
+            <p data-i18n="receiptText">
+              Bewahre Vorgangsnummer und Zugangscode getrennt und sicher auf. Beides wird für den Statusabruf benötigt.
+            </p>
+          </div>
+        </div>
+        <dl class="notice-credentials">
+          <div>
+            <dt data-i18n="caseNumber">Vorgangsnummer</dt>
+            <dd><code id="receipt-notice-id"></code></dd>
+          </div>
+          <div>
+            <dt data-i18n="accessCode">Zugangscode</dt>
+            <dd><code id="receipt-access-code"></code></dd>
+          </div>
+        </dl>
+        <p class="notice-footnote" data-i18n="receiptSafety">
+          Der Zugangscode wird von uns nicht im Klartext gespeichert. Diese Seite speichert ihn ebenfalls nicht im Browser.
+        </p>
+        <button class="notice-secondary" id="new-notice-button" type="button" data-i18n="newNotice">
+          Neue Meldung beginnen
+        </button>
+      </section>
+
+      <section class="notice-panel" id="status-panel" aria-labelledby="status-title">
+        <div class="notice-section-heading">
+          <span class="notice-step" aria-hidden="true">02</span>
+          <div>
+            <h2 id="status-title" data-i18n="statusTitle">Bearbeitungsstand abrufen</h2>
+            <p data-i18n="statusIntro">
+              Der Abruf benötigt nur die Vorgangsnummer und den getrennten Zugangscode.
+            </p>
+          </div>
+        </div>
+        <form id="status-form" autocomplete="off">
+          <div class="notice-grid notice-grid-two">
+            <label>
+              <span data-i18n="caseNumber">Vorgangsnummer</span>
+              <input name="notice_id" maxlength="36" autocomplete="off" required />
+            </label>
+            <label>
+              <span data-i18n="accessCode">Zugangscode</span>
+              <input name="access_code" maxlength="43" autocomplete="off" required />
+            </label>
+          </div>
+          <button class="notice-primary" id="status-button" type="submit" data-i18n="checkStatus">
+            Status sicher abrufen
+          </button>
+        </form>
+        <div class="notice-status-result" id="status-result" role="status" aria-live="polite" hidden>
+          <dl>
+            <div>
+              <dt data-i18n="statusLabel">Status</dt>
+              <dd id="case-status"></dd>
+            </div>
+            <div id="decision-row" hidden>
+              <dt data-i18n="decision">Entscheidung</dt>
+              <dd id="case-decision"></dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <aside class="notice-legal-note">
+        <h2 data-i18n="otherChannelsTitle">Weitere Wege</h2>
+        <p>
+          <span data-i18n="otherChannelsCopy">
+            Für Notfälle wende dich an die zuständigen örtlichen Behörden. Datenschutzanfragen und Beschwerden gegen Entscheidungen erreichst du unter
+          </span>
+          <a href="mailto:datenschutz@cliqly.de">datenschutz@cliqly.de</a>.
+        </p>
+      </aside>
+    </main>
+
+    <footer class="site-footer notice-footer">
+      <div class="shell footer-grid">
+        <div class="footer-company">
+          <strong>Kaynak UG (haftungsbeschränkt)</strong>
+          Erfweiler Str. 12 · 66994 Dahn · Deutschland
+        </div>
+        <div class="footer-links">
+          <a href="/cliqly/datenschutz/" id="footer-privacy-link" data-i18n="privacyLink">Datenschutz</a>
+          <a href="/cliqly/nutzungsbedingungen/" id="footer-terms-link" data-i18n="terms">Nutzungsbedingungen</a>
+          <a href="/impressum/" id="footer-legal-link" data-i18n="legalNotice">Impressum</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
