@@ -2,7 +2,9 @@
 
 Static corporate website for `kaynak.eu`, with German and English company
 content plus German, English, and French Cliqly legal pages. The site has no runtime
-dependencies, cookies, analytics, contact form, or externally loaded fonts.
+dependencies, cookies, analytics, generic contact form, or externally loaded fonts.
+The accountless Cliqly notice portal under `/cliqly/meldestelle/` submits only its
+explicit, user-entered JSON fields to the protected Cliqly Production notice API.
 
 ## Publishing with GitHub Pages
 
@@ -39,6 +41,12 @@ continues to work.
 
 Serve this directory with any static web server. Absolute paths are used
 because the production site runs at the root of `kaynak.eu`.
+
+The notice-portal contract and static security invariants can be checked with:
+
+```text
+node --test tests/cliqly-meldestelle.test.mjs
+```
 
 ## Content source
 
