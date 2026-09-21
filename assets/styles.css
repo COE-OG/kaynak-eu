@@ -445,7 +445,60 @@ main {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
+  gap: 18px;
+}
+
+.app-store-link {
+  display: inline-flex;
+  flex: 0 0 auto;
+  border-radius: 10px;
+  outline-offset: 6px;
+}
+
+.app-store-badge {
+  width: auto;
+  height: 54px;
+  max-width: none;
+}
+
+.launch-meta {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px 20px;
+  color: var(--ink-muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.launch-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.launch-status::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #31c86a;
+  box-shadow: 0 0 0 4px rgba(49, 200, 106, 0.12);
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--blue-deep);
+  font-weight: 620;
+  text-underline-offset: 4px;
+}
+
+.social-link:hover {
+  text-decoration: underline;
 }
 
 .button {
