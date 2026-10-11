@@ -52,6 +52,10 @@ node --test tests/cliqly-meldestelle.test.mjs
 
 Company details and the Cliqly product description were derived from the
 current legal and product documentation in the Cliqly project. The public Cliqly
-privacy policies and terms mirror the July 2026 app documents in `Cliqly/Legal`.
-Review both copies whenever product behaviour, service providers, company,
-hosting, or contact details change.
+privacy policies and terms mirror the 11 October 2026 app documents in `Cliqly/Legal`.
+The app repository's `scripts/legal/sync_legal_site.rb` generates the six legal
+articles and their visible revision dates from those Markdown sources. Run it
+with `--check` to verify synchronization; each generated article also records its
+source SHA-256. The site layout, notice portal and provider notices are unchanged.
+Review all languages whenever product behaviour, service providers, company,
+hosting, or contact details change. Technical checks do not replace legal review.
